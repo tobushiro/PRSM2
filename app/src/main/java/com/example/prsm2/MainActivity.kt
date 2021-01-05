@@ -31,7 +31,8 @@ import org.json.JSONObject
  *  EnableVersionControlIntegration
  *  VCS > Import into version control > share project on GitHub
  *  変更の登録:
- *  
+ *  VCS > commit
+ *  VCS > Git > Push
  *ListViewを作る
  * https://joyplot.com/documents/2018/01/15/kotlin-listview-touch/
  *JSONを作る
