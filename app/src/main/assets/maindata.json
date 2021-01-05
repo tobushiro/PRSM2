@@ -1,0 +1,154 @@
+{
+  "9000000":{
+    "contentTitle":"最初に読み込む",
+    "contentSource":[9100000,9110000,9130000,9140000,9150000,9180000,9190000]
+  },
+  "9100000":{
+    "contentTitle":"基本手技　　　　　              　　　　　",
+    "contentSource":[1100000,1100001,1100002]
+  },
+  "9110000":{
+    "contentTitle":"感染　　　           　　　　　　　　　　　",
+    "contentSource":[1110000,1110001,1110002,1110003]
+  },
+  "9130000":{
+    "contentTitle":"腫瘍　　　　　         　　　　　　　　　　",
+    "contentSource":[1130000,1130001,1130002,1130100,1130101,1130102]
+  },
+  "9140000":{
+    "contentTitle":"手の外科　　　         　　　　　　　　　　",
+    "contentSource":[1140000,1140001,1140002]
+  },
+  "9150000":{
+    "contentTitle":"顔面　　　　          　　　　　　　　　　　　　",
+    "contentSource":[1500000]
+  },
+  "9160000":{
+    "contentTitle":"熱傷　　          　　　　　　　　　　　　　　　",
+    "contentSource":[1160000,1160001]
+  },
+  "9170000":{
+    "contentTitle":"難治性潰瘍　          　　　　　　　　　　　　",
+    "contentSource":[1170000,1170001]
+  },
+  "9180000":{
+    "contentTitle":"麻酔　           　　　　　　　　　　　　　　　　　",
+    "contentSource":[1800000,1800001,1800002,1800003]
+  },
+  "9190000":{
+    "contentTitle":"内科　         　　　　　　　　　　　　　　　　　",
+    "contentSource":[8200001]
+  },
+  "9200000":{
+    "contentTitle":"設定　　          　　　　　　　　　　　　　　　　　",
+    "contentSource":[8200000,8200001]
+  },
+  "1100000":{
+    "contentTitle":"植皮の厚さ                         ",
+    "contentSource":"百澤　明, 波利井清紀: 分層植皮の適応と実際. PAPERS. 2: 19-24, 2005.　より一部改変"
+  },
+  "1100001":{
+    "contentTitle":"皮弁の血管                       ",
+    "contentSource":"god"
+  },
+  "1100002":{
+    "contentTitle":"皮弁の分類                       ",
+    "contentSource":"god"
+  },
+  "1110000":{
+    "contentTitle":"LRINEC                       ",
+    "contentSource":"The LRINEC (Laboratory Risk Indicator for Necrotizing Fasciitis) score: a tool for distinguishing necrotizing fasciitis from other soft tissue infections. Crit Care Med. 2004 Jul;32(7):1535-41. doi: 10.1097/01.ccm.0000129486.35458.7d.より一部改変"
+  },
+  "1110001":{
+    "contentTitle":"抗生剤                       ",
+    "contentSource":"book"
+  },
+  "1110002":{
+    "contentTitle":"破傷風予防                       ",
+    "contentSource":"館正弘:形成外科の基本手技1. 克誠堂出版, 2016"
+  },
+  "1110003":{
+    "contentTitle":"術野の消毒                      ",
+    "contentSource":"櫻井裕之弘: 術前準備と術後管理, 形成外科の基本手技1. 克誠堂出版, 2016　より改変"
+  },
+  "1130000":{
+    "contentTitle":"BCC                       ",
+    "contentSource":"music"
+  },
+  "1130001":{
+    "contentTitle":"SCC Stage                       ",
+    "contentSource":"UICC 8th 2017 Carcinoma of Skin (excluding eyelid, head and neck, perianal, vulva, and penis) (ICD-O-3 C44.5-7, C63.2)* Rules for Classification　より一部改変"
+  },
+  "1130002":{
+    "contentTitle":"SCC 再発リスク分類                       ",
+    "contentSource":"National Comprehensive Cancer Network(NCCN)より一部改変"
+  },
+  "1130100":{
+    "contentTitle":"MM Stage                       ",
+    "contentSource":"AJCC 8th 2017より一部改変"
+  },
+  "1130101":{
+    "contentTitle":"神経線維腫症１型                                                           ",
+    "contentSource":"難病情報センターHP（https://www.nanbyou.or.jp/entry/3992）より一部改変"
+  },
+  "1130102":{
+    "contentTitle":"ANGEL                       ",
+    "contentSource":"口伝"
+  },
+  "1140000":{
+    "contentTitle":"屈筋腱",
+    "contentSource":"teacher"
+  },
+  "1140001":{
+    "contentTitle":"伸筋腱",
+    "contentSource":"friend"
+  },
+  "1140002":{
+    "contentTitle":"再接着",
+    "contentSource":"myself"
+  },
+  "1500000":{
+    "contentTitle":"顔面神経麻痺　柳原法                                                    ",
+    "contentSource":"柳原尚明, 西村宏子, 陌間啓芳, 玉置弘光, 冨田　寛, 他: 顔面神経麻痺程度の判定基準に関する研究. 日耳鼻 80: 799-805, 1977.　より一部改変"
+  },
+  "1160000":{
+    "contentTitle":"分類",
+    "contentSource":"book"
+  },
+  "1160001":{
+    "contentTitle":"輸液",
+    "contentSource":"music"
+  },
+  "1170000":{
+    "contentTitle":"褥瘡",
+    "contentSource":"movie"
+  },
+  "1170001":{
+    "contentTitle":"足壊疽",
+    "contentSource":"text"
+  },
+  "1800000":{
+    "contentTitle":"腋窩神経ブロック",
+    "contentSource":"paper"
+  },
+  "1800001":{
+    "contentTitle":"鎮静",
+    "contentSource":"proff"
+  },
+  "1800002":{
+    "contentTitle":"坐骨神経ブロック",
+    "contentSource":"teacher"
+  },
+  "1800003":{
+    "contentTitle":"滑車下神経ブロック",
+    "contentSource":"出典　なし"
+  },
+  "8200001":{
+    "contentTitle":"クレアチニンクリアランスの計算                                                                      ",
+    "contentSource":"Cockcroft DW et al.: Nephron 1976; 16: 31-41."
+  },
+  "8200000":{
+    "contentTitle":"設定",
+    "contentSource":"myself"
+  }
+}
