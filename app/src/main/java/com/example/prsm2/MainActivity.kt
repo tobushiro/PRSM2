@@ -1,24 +1,25 @@
 package com.example.prsm2
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 
 /***************************************************************************************************
+ * ++次にすること++
+ * リストを押すと結果を表示する
+ * ++++++++++++++
+ *
  * PRSM2 -  MainActivity.kt
- *              fun readContent
+ *              fun ReadList
+ *              fun ReadContent
  *          Result1Activity
  *          DataClass Content.kt
  *
  *          TabFragment.kt
  *          TabAdapter.kt
  *              fragment_tab_1
- *              fragment_tab_1
+ *              fragment_tab_2
  *              
  *"9000000"のコンテンツを読み込む
  *
@@ -53,57 +54,24 @@ class MainActivity : AppCompatActivity() {
         ////Tabの実装
         pager.adapter = TabAdapter(supportFragmentManager,this)
         tab_layoutID.setupWithViewPager(pager)
-
-        ////JSON関連
-        val assetManager = resources.assets
-        val inputStream = assetManager.open("maindata.json")
-        val jsonString = inputStream.bufferedReader().use {it.readText()}
-        val jObject = JSONObject(jsonString)
-
-        //ListViewを作る*****************************************************************************
-        ////"9000000"を読み込む
-        var contentNow : Content = ReadContent("9000000", jObject)
-        var contentNext : Content
-        ////ListViewを表示する
-        /*******************************************************************************************
-        val listView = findViewById(R.id.listviewID) as ListView
-        var adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, contentNow.contentSource)
-        listView.adapter = adapter
-        ///タップ処理
-        listView.setOnItemClickListener {parent, view, position, id ->
-            contentNext = ReadContent(contentNow.contentSource[position],jObject)
-            when (contentNext.contentNumber.take(1)){//positonにしたらデバック
-                "1" ->{
-                    ///デバック用: 通常の結果に飛ぶ
-                    var intent = Intent(this, Result1Activity::class.java)
-                    startActivity(intent)
-                }
-                "9" -> {
-                    //デバック用 :トースト
-                    Toast.makeText(this,contentNext.contentSource.toString(),Toast.LENGTH_SHORT)
-                        .show()
-                }
-                "0" -> {
-                    //デバック用: 新しいリストを作る系
-                    adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, contentNext.contentSource)
-                    listView.adapter = adapter
-                    adapter.notifyDataSetChanged()
-                    contentNow = contentNext
-                }
-                else ->{
-                }
-            }
-        }
-        *******************************************************************************************/
     }
 }
 
-//コンテンツ番号を渡すと、JSONからデーターを読み込んでContentクラスを返す。(コンテンツ番号,JSONBoject)
+//コンテンツ番号を渡すと、JSONからデーターを読み込んでContentクラスを返す。(コンテンツ番号,JSONBoject) リスト系
+fun ReadList (n:String, b:JSONObject):Content{
+    var postJSONObject = b.getJSONObject(n)
+    var t : String = postJSONObject.getString("contentTitle")
+    val s = postJSONObject.getJSONArray("contentSource")
+    var ss = s.toString().drop(9).dropLast(1).split(",")//contentSourceを配列に
+    var c : Content = Content(n,t,ss)
+    return c
+}
+//コンテンツ番号を渡すと、JSONからデーターを読み込んでContentクラスを返す。(コンテンツ番号,JSONBoject)　コンテンツ系
 fun ReadContent (n:String, b:JSONObject):Content{
     var postJSONObject = b.getJSONObject(n)
     var t : String = postJSONObject.getString("contentTitle")
     val s = postJSONObject.getJSONArray("contentSource")
-    var f = s.toString().drop(9).dropLast(1).split(",")//contentSourceを配列に
-    var c : Content = Content(n,t,f)
+    var ss = listOf<String>(s.toString()) //Listof(s.toString())//contentSourceを配列に
+    var c : Content = Content(n,t,ss)
     return c
 }

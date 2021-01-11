@@ -13,4 +13,5 @@ import org.json.JSONArray
 
 data class Content(val contentNumber: String = "9000000",
                    val contentTitle : String = "コンテンツタイトル",
-                   var contentSource: List<String>)
+                   var contentSource: List<String>
+)
