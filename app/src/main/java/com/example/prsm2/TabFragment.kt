@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.fragment_tab_1.*
 import org.json.JSONObject
 import com.example.prsm2.Result1Activity as Result1Activity
 
+/*
+ */
 class Tab1Fragment(var key: String):Fragment() {                                             //リストを表示するフラグメント
     //Fragmentをinflateしている
     override fun onCreateView(
@@ -32,15 +34,17 @@ class Tab1Fragment(var key: String):Fragment() {                                
         val jObject = JSONObject(jsonString)
         //まず9000000のリストを読み込んでアダプターに渡す
         var contentNow : Content = ReadList(key, jObject)
-        val adapter = ArrayAdapter(context!!, android.R.layout.simple_list_item_1, contentNow.contentSource)
+        var items : ArrayList<String> = ItemsMake(contentNow.contentSource as ArrayList<String>,jObject)
+
+        val adapter = ArrayAdapter(context!!, android.R.layout.simple_list_item_1, items)
         this.listviewID.adapter = adapter
         //リストをタップした時の処理
         listviewID.setOnItemClickListener { parent, view, position, id ->
             when(position){
-                1 -> {//デバック用にtoast
+                4 -> {//デバック用にtoast
                     Toast.makeText(context,contentNow.contentTitle, Toast.LENGTH_SHORT).show()
                 }
-                2 -> {//デバック用に結果のactivityに
+                in 1..3 -> {//デバック用に結果のactivityに
                     val intent = Intent(context, Result1Activity::class.java)
                     intent.putExtra("contentNumber",contentNow.contentSource[position])
                     startActivity(intent)

@@ -7,12 +7,13 @@ import org.json.JSONObject
 
 /***************************************************************************************************
  * ++次にすること++
- * リストを押すと結果を表示する
+ * contentに応じた画像を表示する
  * ++++++++++++++
  *
  * PRSM2 -  MainActivity.kt
  *              fun ReadList
  *              fun ReadContent
+ *              fun ItemMakes
  *          Result1Activity
  *          DataClass Content.kt
  *
@@ -41,11 +42,6 @@ import org.json.JSONObject
  *
 ****************************************************************************************************
  */
-/*
-*contentNow :　現在表示しているコンテンツのクラス
-*contentNext : タップされたコンテンツのクラス
-* */
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,8 +66,20 @@ fun ReadList (n:String, b:JSONObject):Content{
 fun ReadContent (n:String, b:JSONObject):Content{
     var postJSONObject = b.getJSONObject(n)
     var t : String = postJSONObject.getString("contentTitle")
-    val s = postJSONObject.getJSONArray("contentSource")
-    var ss = listOf<String>(s.toString()) //Listof(s.toString())//contentSourceを配列に
+    val s = postJSONObject.getString("contentSource")
+    var ss = listOf<String>(s) //Listof(s.toString())//contentSourceを配列に
     var c : Content = Content(n,t,ss)
     return c
+}
+
+//関数ItemsMake コンテンツリストの数字を参照して、内容を取りだす
+fun ItemsMake (a: ArrayList<String>, b:JSONObject):ArrayList<String>{
+    val items = arrayListOf("test")//作り方がわからないので、testを入れた配列
+    for (i in a){
+        var mJSONObject = b.getJSONObject(i)
+        val title = mJSONObject.getString("contentTitle")
+        items += title
+    }
+    items.remove("test")
+    return items
 }
