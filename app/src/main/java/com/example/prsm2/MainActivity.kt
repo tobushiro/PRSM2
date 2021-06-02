@@ -1,13 +1,19 @@
 package com.example.prsm2
 
+import android.annotation.SuppressLint
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 
 /***************************************************************************************************
  * ++次にすること++
- * 画像のピンチズーム
+ * お気に入りの変更
+ * 内容の充実
+ * 推定CCR
  * ++++++++++++++
  *
  * PRSM2 -  MainActivity.kt
@@ -43,13 +49,21 @@ import org.json.JSONObject
 ****************************************************************************************************
  */
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //サポートバーの色
+        val testcolor = applicationContext.resources.getColor(R.color.colorDarkGrey)
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(testcolor))
+
         ////Tabの実装
         pager.adapter = TabAdapter(supportFragmentManager,this)
         tab_layoutID.setupWithViewPager(pager)
+
+        ///ステータスバーの色
+        window.statusBarColor = Color.BLACK
     }
 }
 
@@ -57,8 +71,8 @@ class MainActivity : AppCompatActivity() {
 fun ReadList (n:String, b:JSONObject):Content{
     var postJSONObject = b.getJSONObject(n)
     var t : String = postJSONObject.getString("contentTitle")
-    val s = postJSONObject.getJSONArray("contentSource")
-    var ss = s.toString().drop(9).dropLast(1).split(",")//contentSourceを配列に
+    val s = postJSONObject.getJSONArray("contentSource").toString()
+    var ss = s.toString().drop(1).dropLast(1).split(",")//contentSourceを配列に
     var c : Content = Content(n,t,ss)
     return c
 }

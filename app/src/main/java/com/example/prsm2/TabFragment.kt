@@ -2,6 +2,7 @@ package com.example.prsm2
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,10 +42,7 @@ class Tab1Fragment(var key: String):Fragment() {                                
         //リストをタップした時の処理
         listviewID.setOnItemClickListener { parent, view, position, id ->
             when(position){
-                4 -> {//デバック用にtoast
-                    Toast.makeText(context,contentNow.contentTitle, Toast.LENGTH_SHORT).show()
-                }
-                in 1..3 -> {//デバック用に結果のactivityに
+                in 0..9 -> {//デバック用に結果のactivityに
                     val intent = Intent(context, Result1Activity::class.java)
                     intent.putExtra("contentNumber",contentNow.contentSource[position])
                     startActivity(intent)

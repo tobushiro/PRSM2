@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_gravity="top"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="top"
+    android:orientation="vertical">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
@@ -15,12 +15,15 @@
             android:id="@+id/tab_layoutID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
+            app:tabIndicatorColor="@android:color/holo_orange_light"
             app:tabMode="auto">
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tabitemID1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/ic_launcher_background"
                 android:text="お気に入り" />
 
             <com.google.android.material.tabs.TabItem
@@ -28,6 +31,42 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="腫瘍" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabitemID3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tab4" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabitemID4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tab5" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabitemID5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tab6" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabitemID6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tab7" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabitemID7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tab8" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabitemID8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tab9" />
 
         </com.google.android.material.tabs.TabLayout>
     </androidx.viewpager.widget.ViewPager>
