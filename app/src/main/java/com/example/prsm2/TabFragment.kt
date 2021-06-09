@@ -2,12 +2,10 @@ package com.example.prsm2
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_tab_1.*
 import org.json.JSONObject
@@ -41,13 +39,24 @@ class Tab1Fragment(var key: String):Fragment() {                                
         this.listviewID.adapter = adapter
         //リストをタップした時の処理
         listviewID.setOnItemClickListener { parent, view, position, id ->
-            when(position){
-                in 0..9 -> {//デバック用に結果のactivityに
-                    val intent = Intent(context, Result1Activity::class.java)
-                    intent.putExtra("contentNumber",contentNow.contentSource[position])
+            var selectedNumber = contentNow.contentSource[position]
+
+            when(selectedNumber){
+                "8200001" -> {//クレアチニンクリアランス
+                    val intent = Intent(context, Result2Activity::class.java)
+                    intent.putExtra("contentNumber",selectedNumber)
                     startActivity(intent)
                 }
+                "8200015" -> {//メールアプリ起動
+                    val intent = Intent(context, Result3Activity::class.java)
+                    intent.putExtra("contentNumber",selectedNumber)
+                    startActivity(intent)
+                }
+
                 else -> {
+                    val intent = Intent(context, Result1Activity::class.java)
+                    intent.putExtra("contentNumber",selectedNumber)
+                    startActivity(intent)
                 }
             }
         }

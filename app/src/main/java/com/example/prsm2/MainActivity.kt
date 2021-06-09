@@ -1,19 +1,24 @@
 package com.example.prsm2
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 
 /***************************************************************************************************
  * ++次にすること++
- * お気に入りの変更
  * 内容の充実
- * 推定CCR
+ * 顔面神経評価
+ * メーラーに設定されているメアド
  * ++++++++++++++
  *
  * PRSM2 -  MainActivity.kt
@@ -46,13 +51,22 @@ import org.json.JSONObject
  *JSONを作る
  * https://codechacha.com/ja/how-to-use-assets-in-android/
  *
+ * メモ
+ * ctrl shift P で型を調べる
 ****************************************************************************************************
  */
 class MainActivity : AppCompatActivity() {
 
+    val cLevelMax  = 2 //同意書のレベルの最新
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //共有プリファレンスの準備
+        val sharedPref = getSharedPreferences("setting",Context.MODE_PRIVATE)
+        //同意のレベル
+        var cLevel = sharedPref.getInt("consentLevel",1)
 
         //サポートバーの色
         val testcolor = applicationContext.resources.getColor(R.color.colorDarkGrey)
@@ -64,6 +78,15 @@ class MainActivity : AppCompatActivity() {
 
         ///ステータスバーの色
         window.statusBarColor = Color.BLACK
+
+        //同意がない場合はダイアログボックスの表示して共有プリファレンスに記録
+        if(cLevel != cLevelMax){
+            val dialog = SimpleDialogFragment()
+            dialog.show(supportFragmentManager,"simple")
+            cLevel = 2
+        }
+        sharedPref.edit().putInt("consentLevel",cLevel).apply()
+
     }
 }
 
