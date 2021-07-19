@@ -12,7 +12,7 @@ class SimpleDialogFragment:DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(context)
         builder.setTitle("＜はじめに＞")
-            .setMessage("このアプリを使用することによるいかなる損害も保障しません。利用者はこのアプリの医学的内容または著作権に問題を感じた場合、作成者に通告してください。")
+            .setMessage("このアプリ利用の結果生じた損害について、一切責任を負いません。利用者はこのアプリの医学的内容または著作権に問題を感じた場合、作成者に連絡してください。")
             .setPositiveButton("理解して同意した"){dialog, id ->
                 Toast.makeText(context, "ありがとうございます！", Toast.LENGTH_SHORT).show()
             }
